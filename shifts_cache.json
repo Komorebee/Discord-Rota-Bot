@@ -1,0 +1,1430 @@
+[
+  {
+    "name": "Sam Sheldrake",
+    "date": "Mon 09 Jun",
+    "start": "09:00",
+    "end": "16:45",
+    "role": "CEM"
+  },
+  {
+    "name": "Arthur Dunn",
+    "date": "Mon 09 Jun",
+    "start": "10:00",
+    "end": "17:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Mon 09 Jun",
+    "start": "10:00",
+    "end": "11:00",
+    "role": "Bright Lights"
+  },
+  {
+    "name": "Elfie Corbyn-smith",
+    "date": "Mon 09 Jun",
+    "start": "11:00",
+    "end": "18:00",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Mon 09 Jun",
+    "start": "11:00",
+    "end": "19:30",
+    "role": "Cinema Manager"
+  },
+  {
+    "name": "Timothy Shepherd",
+    "date": "Mon 09 Jun",
+    "start": "11:00",
+    "end": "18:00",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Sean Faria",
+    "date": "Mon 09 Jun",
+    "start": "11:13",
+    "end": "18:30",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Amy Davenhill",
+    "date": "Mon 09 Jun",
+    "start": "12:30",
+    "end": "19:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Damian Street",
+    "date": "Mon 09 Jun",
+    "start": "15:15",
+    "end": "22:15",
+    "role": "Ushering"
+  },
+  {
+    "name": "Prajwal Damavarapu",
+    "date": "Mon 09 Jun",
+    "start": "15:15",
+    "end": "23:00",
+    "role": "Barista"
+  },
+  {
+    "name": "Alper Sarikavak",
+    "date": "Mon 09 Jun",
+    "start": "15:45",
+    "end": "20:00",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Liam Noonan",
+    "date": "Mon 09 Jun",
+    "start": "16:00",
+    "end": "23:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Thomas Cutmore",
+    "date": "Mon 09 Jun",
+    "start": "16:45",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Anna Stephenson",
+    "date": "Mon 09 Jun",
+    "start": "17:30",
+    "end": "00:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Sutton",
+    "date": "Mon 09 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "William King-clarke",
+    "date": "Mon 09 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Zia Saddique",
+    "date": "Mon 09 Jun",
+    "start": "18:30",
+    "end": "22:45",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Michael Ali",
+    "date": "Mon 09 Jun",
+    "start": "19:15",
+    "end": "00:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Anna Stephenson",
+    "date": "Tue 10 Jun",
+    "start": "17:30",
+    "end": "00:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Sutton",
+    "date": "Tue 10 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "William King-clarke",
+    "date": "Tue 10 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Zia Saddique",
+    "date": "Tue 10 Jun",
+    "start": "18:30",
+    "end": "22:45",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Michael Ali",
+    "date": "Tue 10 Jun",
+    "start": "19:15",
+    "end": "00:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Tue 10 Jun",
+    "start": "09:00",
+    "end": "16:00",
+    "role": "Cinema Manager"
+  },
+  {
+    "name": "Kirstie Sinclair",
+    "date": "Tue 10 Jun",
+    "start": "09:00",
+    "end": "16:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Arthur Dunn",
+    "date": "Tue 10 Jun",
+    "start": "10:00",
+    "end": "17:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Elfie Corbyn-smith",
+    "date": "Tue 10 Jun",
+    "start": "10:00",
+    "end": "17:00",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "George White",
+    "date": "Tue 10 Jun",
+    "start": "10:00",
+    "end": "17:00",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Nanette Arhin",
+    "date": "Tue 10 Jun",
+    "start": "11:00",
+    "end": "18:30",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Elania Belsey",
+    "date": "Tue 10 Jun",
+    "start": "15:15",
+    "end": "22:15",
+    "role": "Ushering"
+  },
+  {
+    "name": "Mark Duesbury-wright",
+    "date": "Tue 10 Jun",
+    "start": "15:15",
+    "end": "23:00",
+    "role": "Barista"
+  },
+  {
+    "name": "Charlotte Scott",
+    "date": "Tue 10 Jun",
+    "start": "15:45",
+    "end": "20:00",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Emma Aldridge",
+    "date": "Tue 10 Jun",
+    "start": "16:00",
+    "end": "23:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Thomas Cutmore",
+    "date": "Tue 10 Jun",
+    "start": "16:15",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Alex Holmes",
+    "date": "Tue 10 Jun",
+    "start": "17:30",
+    "end": "00:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Robyn Tutt",
+    "date": "Tue 10 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Thomas Sutton",
+    "date": "Tue 10 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Tue 10 Jun",
+    "start": "12:30",
+    "end": "19:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Cutmore",
+    "date": "Wed 11 Jun",
+    "start": "16:15",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Alex Holmes",
+    "date": "Wed 11 Jun",
+    "start": "17:30",
+    "end": "00:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Robyn Tutt",
+    "date": "Wed 11 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Thomas Sutton",
+    "date": "Wed 11 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Michael Ali",
+    "date": "Wed 11 Jun",
+    "start": "19:15",
+    "end": "00:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Wed 11 Jun",
+    "start": "12:30",
+    "end": "19:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Wed 11 Jun",
+    "start": "16:15",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Wed 11 Jun",
+    "start": "18:30",
+    "end": "22:45",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Ash Haji jamel",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "George White",
+    "date": "Wed 11 Jun",
+    "start": "11:00",
+    "end": "17:00",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Alper Sarikavak",
+    "date": "Wed 11 Jun",
+    "start": "15:45",
+    "end": "20:00",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Charlotte Scott",
+    "date": "Wed 11 Jun",
+    "start": "18:30",
+    "end": "22:45",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Wed 11 Jun",
+    "start": "09:00",
+    "end": "11:00",
+    "role": "Cinema Manager"
+  },
+  {
+    "name": "Sam Sheldrake",
+    "date": "Wed 11 Jun",
+    "start": "09:00",
+    "end": "16:45",
+    "role": "CEM"
+  },
+  {
+    "name": "Amy Davenhill",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Anna Stephenson",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Charlotte Scott",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Connor Eke",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Damian Street",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Elania Belsey",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Elfie Corbyn-smith",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Flavia Succi",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "George White",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Jack Godfrey-long",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Jack Hothi",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Kirstie Sinclair",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Michael Ali",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Nanette Arhin",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Prajwal Damavarapu",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Sam Hoggarth",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Sam Pridige",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Sean Faria",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Tessa Guy",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Tetiana Kryvoruchko",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Timothy Shepherd",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Will Woodrow",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "William King-clarke",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Zia Saddique",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Tiago Lopes posser",
+    "date": "Wed 11 Jun",
+    "start": "10:00",
+    "end": "17:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Wed 11 Jun",
+    "start": "11:00",
+    "end": "16:00",
+    "role": "Bright Lights"
+  },
+  {
+    "name": "Jack Godfrey-long",
+    "date": "Wed 11 Jun",
+    "start": "11:00",
+    "end": "18:00",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Tetiana Kryvoruchko",
+    "date": "Wed 11 Jun",
+    "start": "11:00",
+    "end": "18:30",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Sam Hoggarth",
+    "date": "Wed 11 Jun",
+    "start": "12:30",
+    "end": "19:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Flavia Succi",
+    "date": "Wed 11 Jun",
+    "start": "15:15",
+    "end": "22:15",
+    "role": "Ushering"
+  },
+  {
+    "name": "Prajwal Damavarapu",
+    "date": "Wed 11 Jun",
+    "start": "15:15",
+    "end": "23:00",
+    "role": "Barista"
+  },
+  {
+    "name": "Thomas Cutmore",
+    "date": "Wed 11 Jun",
+    "start": "16:00",
+    "end": "23:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Connor Eke",
+    "date": "Wed 11 Jun",
+    "start": "16:15",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Tessa Guy",
+    "date": "Wed 11 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Wed 11 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Connor Eke",
+    "date": "Thu 12 Jun",
+    "start": "16:15",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Tessa Guy",
+    "date": "Thu 12 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Michael Ali",
+    "date": "Thu 12 Jun",
+    "start": "19:15",
+    "end": "00:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Thu 12 Jun",
+    "start": "09:30",
+    "end": "10:30",
+    "role": "Other"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Thu 12 Jun",
+    "start": "16:15",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Thu 12 Jun",
+    "start": "17:30",
+    "end": "00:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Unassigned",
+    "date": "Thu 12 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Kirstie Sinclair",
+    "date": "Thu 12 Jun",
+    "start": "09:00",
+    "end": "16:45",
+    "role": "CEM"
+  },
+  {
+    "name": "Emma Aldridge",
+    "date": "Thu 12 Jun",
+    "start": "09:30",
+    "end": "16:30",
+    "role": "Bright Lights"
+  },
+  {
+    "name": "Tiago Lopes posser",
+    "date": "Thu 12 Jun",
+    "start": "10:00",
+    "end": "17:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Prajwal Damavarapu",
+    "date": "Thu 12 Jun",
+    "start": "10:30",
+    "end": "17:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Jack Godfrey-long",
+    "date": "Thu 12 Jun",
+    "start": "11:00",
+    "end": "18:00",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Nanette Arhin",
+    "date": "Thu 12 Jun",
+    "start": "11:00",
+    "end": "18:30",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Elania Belsey",
+    "date": "Thu 12 Jun",
+    "start": "12:30",
+    "end": "19:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Cutmore",
+    "date": "Thu 12 Jun",
+    "start": "13:00",
+    "end": "22:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Damian Street",
+    "date": "Thu 12 Jun",
+    "start": "15:15",
+    "end": "22:15",
+    "role": "Ushering"
+  },
+  {
+    "name": "Mark Duesbury-wright",
+    "date": "Thu 12 Jun",
+    "start": "15:15",
+    "end": "23:00",
+    "role": "Barista"
+  },
+  {
+    "name": "Will Woodrow",
+    "date": "Thu 12 Jun",
+    "start": "15:45",
+    "end": "21:30",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Connor Eke",
+    "date": "Thu 12 Jun",
+    "start": "16:45",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Anna Stephenson",
+    "date": "Thu 12 Jun",
+    "start": "17:30",
+    "end": "00:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Sutton",
+    "date": "Thu 12 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "William King-clarke",
+    "date": "Thu 12 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Alper Sarikavak",
+    "date": "Thu 12 Jun",
+    "start": "18:30",
+    "end": "22:45",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Robyn Tutt",
+    "date": "Thu 12 Jun",
+    "start": "19:15",
+    "end": "00:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Connor Eke",
+    "date": "Fri 13 Jun",
+    "start": "16:45",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Anna Stephenson",
+    "date": "Fri 13 Jun",
+    "start": "17:30",
+    "end": "00:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Sutton",
+    "date": "Fri 13 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "William King-clarke",
+    "date": "Fri 13 Jun",
+    "start": "18:00",
+    "end": "00:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Alper Sarikavak",
+    "date": "Fri 13 Jun",
+    "start": "18:30",
+    "end": "22:45",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Robyn Tutt",
+    "date": "Fri 13 Jun",
+    "start": "19:15",
+    "end": "00:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Kirstie Sinclair",
+    "date": "Fri 13 Jun",
+    "start": "09:00",
+    "end": "16:45",
+    "role": "CEM"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Fri 13 Jun",
+    "start": "10:00",
+    "end": "17:00",
+    "role": "Cinema Manager"
+  },
+  {
+    "name": "Jack Hothi",
+    "date": "Fri 13 Jun",
+    "start": "10:00",
+    "end": "16:45",
+    "role": "Barista"
+  },
+  {
+    "name": "Scarlet Frary",
+    "date": "Fri 13 Jun",
+    "start": "10:00",
+    "end": "16:45",
+    "role": "FAB Serving"
+  },
+  {
+    "name": "Zia Saddique",
+    "date": "Fri 13 Jun",
+    "start": "10:00",
+    "end": "16:45",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Amy Davenhill",
+    "date": "Fri 13 Jun",
+    "start": "11:00",
+    "end": "11:30",
+    "role": "Other"
+  },
+  {
+    "name": "Amy Davenhill",
+    "date": "Fri 13 Jun",
+    "start": "11:30",
+    "end": "18:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Issac Lou",
+    "date": "Fri 13 Jun",
+    "start": "12:00",
+    "end": "19:45",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Arthur Dunn",
+    "date": "Fri 13 Jun",
+    "start": "13:00",
+    "end": "20:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Timothy Shepherd",
+    "date": "Fri 13 Jun",
+    "start": "15:00",
+    "end": "22:30",
+    "role": "FAB Serving"
+  },
+  {
+    "name": "Flavia Succi",
+    "date": "Fri 13 Jun",
+    "start": "16:15",
+    "end": "00:00",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Amelia Rahman",
+    "date": "Fri 13 Jun",
+    "start": "16:45",
+    "end": "23:00",
+    "role": "Barista"
+  },
+  {
+    "name": "Jack Cutter",
+    "date": "Fri 13 Jun",
+    "start": "16:45",
+    "end": "00:00",
+    "role": "FAB Serving"
+  },
+  {
+    "name": "Jack Godfrey-long",
+    "date": "Fri 13 Jun",
+    "start": "16:45",
+    "end": "00:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Liam Noonan",
+    "date": "Fri 13 Jun",
+    "start": "16:45",
+    "end": "01:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Prajwal Damavarapu",
+    "date": "Fri 13 Jun",
+    "start": "16:45",
+    "end": "22:00",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Fri 13 Jun",
+    "start": "17:00",
+    "end": "18:00",
+    "role": "Bright Lights"
+  },
+  {
+    "name": "Damian Street",
+    "date": "Fri 13 Jun",
+    "start": "17:15",
+    "end": "23:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Cutmore",
+    "date": "Fri 13 Jun",
+    "start": "18:00",
+    "end": "02:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Liam Noonan",
+    "date": "Sat 14 Jun",
+    "start": "16:45",
+    "end": "01:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Prajwal Damavarapu",
+    "date": "Sat 14 Jun",
+    "start": "16:45",
+    "end": "22:00",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Sat 14 Jun",
+    "start": "17:00",
+    "end": "18:00",
+    "role": "Bright Lights"
+  },
+  {
+    "name": "Damian Street",
+    "date": "Sat 14 Jun",
+    "start": "17:15",
+    "end": "23:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Cutmore",
+    "date": "Sat 14 Jun",
+    "start": "18:00",
+    "end": "02:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Robyn Tutt",
+    "date": "Sat 14 Jun",
+    "start": "18:15",
+    "end": "02:00",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Thomas Sutton",
+    "date": "Sat 14 Jun",
+    "start": "18:15",
+    "end": "02:00",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Sam Pridige",
+    "date": "Sat 14 Jun",
+    "start": "18:30",
+    "end": "02:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Ash Haji jamel",
+    "date": "Sat 14 Jun",
+    "start": "09:30",
+    "end": "18:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Arthur Dunn",
+    "date": "Sat 14 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "FAB Serving"
+  },
+  {
+    "name": "Amelia Rahman",
+    "date": "Sat 14 Jun",
+    "start": "18:30",
+    "end": "02:00",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Jack Hothi",
+    "date": "Sat 14 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "Barista"
+  },
+  {
+    "name": "Sam Sheldrake",
+    "date": "Sat 14 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "CEM"
+  },
+  {
+    "name": "Zia Saddique",
+    "date": "Sat 14 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Tetiana Kryvoruchko",
+    "date": "Sat 14 Jun",
+    "start": "08:45",
+    "end": "16:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Tiago Lopes posser",
+    "date": "Sat 14 Jun",
+    "start": "08:45",
+    "end": "16:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Will Woodrow",
+    "date": "Sat 14 Jun",
+    "start": "08:45",
+    "end": "16:30",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Kirstie Sinclair",
+    "date": "Sat 14 Jun",
+    "start": "09:30",
+    "end": "17:15",
+    "role": "CEM"
+  },
+  {
+    "name": "Nanette Arhin",
+    "date": "Sat 14 Jun",
+    "start": "09:30",
+    "end": "17:15",
+    "role": "Ushering"
+  },
+  {
+    "name": "Amy Davenhill",
+    "date": "Sat 14 Jun",
+    "start": "10:30",
+    "end": "18:15",
+    "role": "Ushering"
+  },
+  {
+    "name": "Issac Lou",
+    "date": "Sat 14 Jun",
+    "start": "10:45",
+    "end": "18:30",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Scarlet Frary",
+    "date": "Sat 14 Jun",
+    "start": "11:30",
+    "end": "19:15",
+    "role": "Runner"
+  },
+  {
+    "name": "Anna Stephenson",
+    "date": "Sat 14 Jun",
+    "start": "12:00",
+    "end": "19:45",
+    "role": "Ushering"
+  },
+  {
+    "name": "Georgia Doman",
+    "date": "Sat 14 Jun",
+    "start": "12:00",
+    "end": "20:00",
+    "role": "Cinema Manager"
+  },
+  {
+    "name": "Elania Belsey",
+    "date": "Sat 14 Jun",
+    "start": "13:15",
+    "end": "21:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Mark Duesbury-wright",
+    "date": "Sat 14 Jun",
+    "start": "13:15",
+    "end": "21:00",
+    "role": "Barista"
+  },
+  {
+    "name": "Jack Godfrey-long",
+    "date": "Sat 14 Jun",
+    "start": "15:45",
+    "end": "23:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Kieron Woodhouse",
+    "date": "Sat 14 Jun",
+    "start": "15:45",
+    "end": "01:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Sean Faria",
+    "date": "Sat 14 Jun",
+    "start": "15:45",
+    "end": "23:30",
+    "role": "FAB Serving"
+  },
+  {
+    "name": "Charlotte Scott",
+    "date": "Sat 14 Jun",
+    "start": "16:30",
+    "end": "23:45",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Prajwal Damavarapu",
+    "date": "Sat 14 Jun",
+    "start": "16:30",
+    "end": "23:00",
+    "role": "Barista"
+  },
+  {
+    "name": "Robyn Tutt",
+    "date": "Sat 14 Jun",
+    "start": "16:30",
+    "end": "00:15",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Connor Eke",
+    "date": "Sat 14 Jun",
+    "start": "17:15",
+    "end": "02:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Flavia Succi",
+    "date": "Sat 14 Jun",
+    "start": "17:15",
+    "end": "00:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Alper Sarikavak",
+    "date": "Sat 14 Jun",
+    "start": "18:15",
+    "end": "02:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Michael Ali",
+    "date": "Sat 14 Jun",
+    "start": "18:15",
+    "end": "02:00",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Prajwal Damavarapu",
+    "date": "Sun 15 Jun",
+    "start": "16:30",
+    "end": "23:00",
+    "role": "Barista"
+  },
+  {
+    "name": "Robyn Tutt",
+    "date": "Sun 15 Jun",
+    "start": "16:30",
+    "end": "00:15",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Connor Eke",
+    "date": "Sun 15 Jun",
+    "start": "17:15",
+    "end": "02:00",
+    "role": "CEM"
+  },
+  {
+    "name": "Flavia Succi",
+    "date": "Sun 15 Jun",
+    "start": "17:15",
+    "end": "00:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Alper Sarikavak",
+    "date": "Sun 15 Jun",
+    "start": "18:15",
+    "end": "02:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Michael Ali",
+    "date": "Sun 15 Jun",
+    "start": "18:15",
+    "end": "02:00",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Ash Haji jamel",
+    "date": "Sun 15 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "FAB Serving"
+  },
+  {
+    "name": "Scarlet Frary",
+    "date": "Sun 15 Jun",
+    "start": "08:45",
+    "end": "16:30",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "William King-clarke",
+    "date": "Sun 15 Jun",
+    "start": "10:30",
+    "end": "18:15",
+    "role": "Ushering"
+  },
+  {
+    "name": "Alper Sarikavak",
+    "date": "Sun 15 Jun",
+    "start": "16:30",
+    "end": "22:15",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Emma Aldridge",
+    "date": "Sun 15 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "CEM"
+  },
+  {
+    "name": "Jack Hothi",
+    "date": "Sun 15 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "Barista"
+  },
+  {
+    "name": "Kirstie Sinclair",
+    "date": "Sun 15 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "CEM"
+  },
+  {
+    "name": "Timothy Shepherd",
+    "date": "Sun 15 Jun",
+    "start": "08:00",
+    "end": "15:45",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Tiago Lopes posser",
+    "date": "Sun 15 Jun",
+    "start": "08:45",
+    "end": "16:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Zia Saddique",
+    "date": "Sun 15 Jun",
+    "start": "08:45",
+    "end": "16:30",
+    "role": "Ushering GSP"
+  },
+  {
+    "name": "Anna Stephenson",
+    "date": "Sun 15 Jun",
+    "start": "09:30",
+    "end": "17:15",
+    "role": "Ushering"
+  },
+  {
+    "name": "George White",
+    "date": "Sun 15 Jun",
+    "start": "09:30",
+    "end": "18:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Daniel Jones",
+    "date": "Sun 15 Jun",
+    "start": "10:45",
+    "end": "16:00",
+    "role": "Runner"
+  },
+  {
+    "name": "Tetiana Kryvoruchko",
+    "date": "Sun 15 Jun",
+    "start": "10:45",
+    "end": "18:30",
+    "role": "FAB Runner / Prep"
+  },
+  {
+    "name": "Arthur Dunn",
+    "date": "Sun 15 Jun",
+    "start": "13:15",
+    "end": "20:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Nanette Arhin",
+    "date": "Sun 15 Jun",
+    "start": "13:15",
+    "end": "18:00",
+    "role": "Ushering"
+  },
+  {
+    "name": "Jack Godfrey-long",
+    "date": "Sun 15 Jun",
+    "start": "15:45",
+    "end": "22:30",
+    "role": "Kiosk Host"
+  },
+  {
+    "name": "Kieron Woodhouse",
+    "date": "Sun 15 Jun",
+    "start": "15:45",
+    "end": "23:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Sean Faria",
+    "date": "Sun 15 Jun",
+    "start": "15:45",
+    "end": "22:30",
+    "role": "FAB Serving"
+  },
+  {
+    "name": "Thomas Cutmore",
+    "date": "Sun 15 Jun",
+    "start": "15:45",
+    "end": "00:30",
+    "role": "CEM"
+  },
+  {
+    "name": "Mark Duesbury-wright",
+    "date": "Sun 15 Jun",
+    "start": "16:30",
+    "end": "22:30",
+    "role": "Barista"
+  },
+  {
+    "name": "Michael Ali",
+    "date": "Sun 15 Jun",
+    "start": "16:30",
+    "end": "23:00",
+    "role": "FAB Order Maker"
+  },
+  {
+    "name": "Damian Street",
+    "date": "Sun 15 Jun",
+    "start": "17:15",
+    "end": "22:45",
+    "role": "Ushering"
+  },
+  {
+    "name": "Tessa Guy",
+    "date": "Sun 15 Jun",
+    "start": "18:15",
+    "end": "00:30",
+    "role": "Ushering"
+  },
+  {
+    "name": "Thomas Sutton",
+    "date": "Sun 15 Jun",
+    "start": "18:15",
+    "end": "00:30",
+    "role": "Kitchen Assistant"
+  },
+  {
+    "name": "Amelia Rahman",
+    "date": "Sun 15 Jun",
+    "start": "18:30",
+    "end": "00:30",
+    "role": "FAB Runner / Prep"
+  }
+]
