@@ -26,6 +26,25 @@ async def fetch_user_shifts(target_name=None):
         await page.click('button[data-test-id="logInButton"]')
         await page.wait_for_timeout(5000)
 
+        # --- Go to custom schedule URL ---
+        from datetime import datetime, timedelta
+
+        today = datetime.now()
+        from_date_obj = today - timedelta(days=1)
+        from_date = from_date_obj.strftime('%Y-%m-%d')
+
+        days_until_next_thursday = (3 - today.weekday() + 7) % 7
+        if days_until_next_thursday == 0:
+            days_until_next_thursday = 7
+        to_date_obj = today + timedelta(days=days_until_next_thursday)
+        to_date = to_date_obj.strftime('%Y-%m-%d')
+
+        url = f"https://web.quinyx.com/staffPortal/schedule?dateOption=week&fromDate={from_date}&toDate={to_date}"
+        print(f"Navigating to {url}")
+        await page.goto(url)
+        await page.wait_for_timeout(3000)
+
+
         # --- Filter: Colleague's shift ---
         print("Looking for filter button...")
         await page.wait_for_selector('div.legacyDiv.bold.hidden-sm', timeout=10000)
@@ -65,7 +84,7 @@ async def fetch_user_shifts(target_name=None):
         seen_shifts = set()
         shifts = []
         last_height = -1
-        max_scrolls = 50
+        max_scrolls = 70
 
         current_date = None  # <--- Move this OUTSIDE the scroll loop
 
