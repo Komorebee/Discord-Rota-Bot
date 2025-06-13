@@ -36,8 +36,8 @@ async def on_ready():
 
     cache_valid = False
 
-    if os.path.exists("shifts_cache.json"):
-        try:
+    try:
+        if os.path.exists("shifts_cache.json"):
             with open("shifts_cache.json", 'r', encoding='utf-8') as f:
                 data = json.load(f)
             shift_dates = set()
@@ -53,8 +53,8 @@ async def on_ready():
 
             if today in shift_dates and next_thursday in shift_dates:
                 cache_valid = True
-        except Exception as e:
-            print("Error reading cache:", e)
+    except Exception as e:
+        print("Error reading cache:", e)
 
     if not cache_valid:
         print("Cache is outdated or incomplete. Fetching shifts now...")
