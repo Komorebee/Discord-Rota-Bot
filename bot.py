@@ -9,6 +9,8 @@ from commands_free import register_free_command
 from commands_swap import register_swap_command
 from commands_fetch import register_fetch_command
 from commands_iam import register_iam_command
+import json
+from datetime import datetime, timedelta
 
 TOKEN = os.getenv("DISCORD_TOKEN") or "YOUR_DISCORD_BOT_TOKEN"
 intents = discord.Intents.default()
@@ -18,7 +20,6 @@ SHIFTS_CACHE_FILE = "shifts_cache.json"
 
 async def scheduled_fetch(bot):
     await asyncio.sleep(4 * 60 * 60)  # 4 hours in seconds
-    # Import fetch_and_cache here (to avoid circular import)
     from utils import fetch_and_cache
     await fetch_and_cache()
     print("Auto-fetched shifts after 4 hours.")
@@ -35,7 +36,6 @@ async def on_ready():
     from utils import fetch_and_cache
 
     cache_valid = False
-
     try:
         if os.path.exists("shifts_cache.json"):
             with open("shifts_cache.json", 'r', encoding='utf-8') as f:
@@ -63,7 +63,6 @@ async def on_ready():
         print("Cache is up to date. Scheduling auto-fetch in 4 hours...")
         asyncio.create_task(scheduled_fetch(bot))
 
-
     # Check if cache contains today and next Thursday
     cache_valid = False
     if os.path.exists(SHIFTS_CACHE_FILE):
@@ -89,9 +88,6 @@ async def on_ready():
     else:
         print("Cache is up to date. Scheduling auto-fetch in 4 hours...")
         asyncio.create_task(scheduled_fetch(bot))
-
-    except Exception as e:
-        print("Error syncing commands:", e)
 
     # Only schedule fetch if the cache already exists (i.e., don't fetch immediately on launch)
     if os.path.exists(SHIFTS_CACHE_FILE):
