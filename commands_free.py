@@ -1,121 +1,177 @@
-from discord import app_commands
-import discord
-from utils import load_cache, parse_date, date_to_pretty, split_multi_field, day_autocomplete, name_autocomplete, role_autocomplete
 from datetime import datetime, timedelta
 from collections import defaultdict
-import io
 
-def register_rota_commands(bot):
-    tree = bot.tree
 
-    @tree.command(name="rota", description="Cinema rota: filter by name, day, role (multi-role allowed).")
-    @app_commands.describe(
-        name="Staff full name (optional)",
-        day="Day (e.g., 09 Jun Mon or today, optional)",
-        role="Role(s), e.g. FAB Serving, FAB Kitchen Assistant (comma-separated, optional)"
-    )
-    @app_commands.autocomplete(name=name_autocomplete, day=day_autocomplete, role=role_autocomplete)
-    async def rota_cmd(
-        interaction: discord.Interaction,
-        name: str = None,
-        day: str = None,
-        role: str = None,
-    ):
-        shifts = load_cache()
-        if not shifts:
-            await interaction.response.send_message("❌ No shift data. Please run `/fetch` first.", ephemeral=True)
-            return
+def register_free_command(bot):
+tree = bot.tree
 
-        now = datetime.now()
-        # If no args: show today, all names, all roles
-        if not name and not day and not role:
-            day_obj = now
-            filtered_shifts = []
-            for s in shifts:
-                d, _ = parse_date(s.get("date", ""))
-                if d and d.date() == day_obj.date():
-                    filtered_shifts.append(s)
-            results = filtered_shifts
-            day = now.strftime("%d %b %a")
-        else:
-            results = shifts
-            if name:
-                names = split_multi_field(name)
-                results = [s for s in results if any(n.lower() in s["name"].lower() for n in names)]
-            if day:
-                # Accepts "today", "tomorrow", or "09 Jun" or "09 Jun Mon"
-                if day.lower() == "today":
-                    day_obj = now
-                elif day.lower() == "tomorrow":
-                    day_obj = now + timedelta(days=1)
-                else:
-                    try:
-                        date_parts = day.split()
-                        if len(date_parts) >= 2:
-                            day_num, month = date_parts[0], date_parts[1]
-                            year = now.year
-                            day_obj = datetime.strptime(f"{day_num} {month} {year}", "%d %b %Y")
-                        else:
-                            day_obj = None
-                    except Exception:
-                        day_obj = None
-                if day_obj:
-                    results = [
-                        s for s in results
-                        if "date" in s and s["date"] and
-                        parse_date(s["date"])[0] and
-                        parse_date(s["date"])[0].date() == day_obj.date()
-                    ]
-                else:
-                    results = [s for s in results if day.lower() in (s.get("date") or "").lower()]
-            if role:
-                roles = split_multi_field(role)
-                results = [s for s in results if any(r.lower() in (s.get("role") or "").lower() for r in roles)]
+    (name="free", description="Find when staff are free on specific days or overall.")
+@app_commands.describe(names="Comma-separated staff names (optional)", days="Comma-separated days (e.g. Monday, Tuesday)")
+@app_commands.autocomplete(names=name_autocomplete, days=day_autocomplete)
+async def free_cmd(interaction: discord.Interaction, names: str = "", days: str = ""):
+    shifts = load_cache()
+    if not shifts:
+        await interaction.response.send_message("No cached data. Please run `/fetch` first.", ephemeral=True)
+        return
 
-        type_colors = {
-            "Managers": discord.Color.dark_blue(),
-            "Floor": discord.Color.gold(),
-            "FAB": discord.Color.red(),
-            "Costa": discord.Color.green(),
-            "Other": discord.Color.light_grey(),
-        }
+    staff_list = [n.strip().title() for n in names.split(",") if n.strip()]
+    day_list = [d.strip().capitalize() for d in days.split(",") if d.strip()]
+    all_names = sorted(set(s["name"] for s in shifts if s.get("name")))
 
-        # Group by date -> type -> person -> list of shifts
-        grouped = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+    if not staff_list and not day_list:
+        await interaction.response.send_message("Please provide at least a name or a day.", ephemeral=True)
+        return
 
-        for s in results:
-            d, _ = parse_date(s.get("date") or "")
-            if not d:
+    from datetime import date as Date
+    shifts_by_name = defaultdict(lambda: defaultdict(list))
+    shift_details = defaultdict(lambda: defaultdict(list))
+    for s in shifts:
+        name = s.get("name", "").title()
+        date_obj, _ = parse_date(s.get("date", ""))
+        start, end = s.get("start"), s.get("end")
+        type = s.get("type", "Shift")
+        if name and date_obj and start and end:
+            try:
+                st = datetime.strptime(start, "%H:%M").time()
+                en = datetime.strptime(end, "%H:%M").time()
+                shifts_by_name[name][date_obj.date()].append((st, en))
+                shift_details[name][date_obj.date()].append((st, en, type))
+            except:
                 continue
-            date_key = d.strftime("%A %d %b %Y")
-            shift_str = f"{s['start']}–{s['end']} ({s['role']})"
-            name_key = s["name"]
-            role_str = (s.get("role") or "").lower()
-            # Categorization logic
-            if "manager" in role_str or "cem" in role_str:
-                cat = "Managers"
-            elif "ushering" in role_str:
-                cat = "Floor"
-            elif "barista" in role_str:
-                cat = "Costa"
-            elif "fab" in role_str or "kitchen" in role_str or "kiosk" in role_str:
-                cat = "FAB"
-            else:
-                cat = "Other"
-            grouped[date_key][cat][name_key].append(shift_str)
 
-        # Sort by date
-        for date_key in sorted(grouped.keys()):
-            await interaction.response.send_message(f"**Rota for {date_key}:**", ephemeral=False)
-            # For each category, build an embed
-            for cat in ["Managers", "Floor", "FAB", "Costa", "Other"]:
-                if cat not in grouped[date_key]:
-                    continue
-                embed = discord.Embed(title=cat, color=type_colors[cat])
-                for name_key, shifts_list in grouped[date_key][cat].items():
-                    embed.add_field(
-                        name=name_key,
-                        value="\n".join(shifts_list),
-                        inline=False
-                    )
-                await interaction.followup.send(embed=embed, ephemeral=False)
+    all_dates = sorted({parse_date(s.get("date", ""))[0].date() for s in shifts if parse_date(s.get("date", ""))[0]})
+
+    def day_header(date: Date) -> str:
+        return date.strftime("%d-%m-%y %A")
+
+    rainbow_colors = [0xFF6B6B, 0xFFB26B, 0xFFD56B, 0xB5E26B, 0x6BE2A6, 0x6BD0E2, 0xB76BE2]
+
+    embeds = []
+    for idx, day in enumerate(all_dates):
+        if day_list and day.strftime("%A") not in day_list:
+            continue
+
+        working, free = [], []
+        for name in (staff_list if staff_list else all_names):
+            if shifts_by_name[name].get(day):
+                st, en, typ = shift_details[name][day][0]
+                working.append(f"❌ **{name}** is working ({st.strftime('%H:%M')}–{en.strftime('%H:%M')}, **{typ}**)")                
+            else:
+                free.append(f"✅ {name} is free.")
+
+        if not working and not free:
+            continue
+
+        embed = discord.Embed(
+            title=day_header(day),
+            description="\n".join(working + free),
+            color=rainbow_colors[idx % len(rainbow_colors)]
+        )
+        embeds.append(embed)
+
+    if not embeds:
+        await interaction.response.send_message("No data matched the query.", ephemeral=True)
+    else:
+        for e in embeds:
+            await interaction.followup.send(embed=e, ephemeral=False)", description="Find when staff are free on specific days or overall.")
+    @tree.command(name="free", description="Find when staff are free on specific days or overall.")
+@app_commands.describe(names="Comma-separated staff names (optional)", days="Comma-separated days (e.g. Monday, Tuesday)")
+@app_commands.autocomplete(names=name_autocomplete, days=day_autocomplete)
+async def free_cmd(interaction: discord.Interaction, names: str = "", days: str = ""):
+@@ -87,25 +18,26 @@ async def free_cmd(interaction: discord.Interaction, names: str = "", days: str
+
+staff_list = [n.strip().title() for n in names.split(",") if n.strip()]
+day_list = [d.strip().capitalize() for d in days.split(",") if d.strip()]
+
+all_names = sorted(set(s["name"] for s in shifts if s.get("name")))
+
+if not staff_list and not day_list:
+await interaction.response.send_message("Please provide at least a name or a day.", ephemeral=True)
+return
+
+        # Build shift map: name -> date -> (start, end)
+from datetime import date as Date
+shifts_by_name = defaultdict(lambda: defaultdict(list))
+        shift_details = defaultdict(lambda: defaultdict(list))
+for s in shifts:
+name = s.get("name", "").title()
+date_obj, _ = parse_date(s.get("date", ""))
+start, end = s.get("start"), s.get("end")
+            typ = s.get("type", "Shift")
+if name and date_obj and start and end:
+try:
+st = datetime.strptime(start, "%H:%M").time()
+en = datetime.strptime(end, "%H:%M").time()
+shifts_by_name[name][date_obj.date()].append((st, en))
+                    shift_details[name][date_obj.date()].append((st, en, typ))
+except:
+continue
+
+@@ -114,47 +46,33 @@ async def free_cmd(interaction: discord.Interaction, names: str = "", days: str
+def day_header(date: Date) -> str:
+return date.strftime("%d-%m-%y %A")
+
+        results = []
+        rainbow_colors = [0xFF6B6B, 0xFFB26B, 0xFFD56B, 0xB5E26B, 0x6BE2A6, 0x6BD0E2, 0xB76BE2]
+
+        for day in all_dates:
+        embeds = []
+        for idx, day in enumerate(all_dates):
+if day_list and day.strftime("%A") not in day_list:
+continue
+
+            names_working = []
+            names_free = []
+            working, free = [], []
+for name in (staff_list if staff_list else all_names):
+if shifts_by_name[name].get(day):
+                    names_working.append(name)
+                    st, en, typ = shift_details[name][day][0]
+                    working.append(f"❌ **{name}** is working ({st.strftime('%H:%M')}–{en.strftime('%H:%M')}, **{typ}**)")                
+else:
+                    names_free.append(name)
+                    free.append(f"✅ {name} is free.")
+
+            if staff_list:
+                if len(staff_list) == 1:
+                    if names_free:
+                        results.append(f"**{day_header(day)}:** {staff_list[0]} is free.")
+                else:
+                    if len(names_working) == 0:
+                        results.append(f"**{day_header(day)}:** All are free.")
+                    elif len(names_working) < len(staff_list):
+                        msg = f"**{day_header(day)}:**\n"
+                        for name in names_working:
+                            msg += f"  ❌ {name} has a shift.\n"
+                        for name in names_free:
+                            msg += f"  ✅ {name} is free.\n"
+                        results.append(msg)
+            else:
+                # Only day(s) provided
+                if names_free:
+                    results.append(f"**{day_header(day)}:** {', '.join(names_free)} are free.")
+            if not working and not free:
+                continue
+
+            embed = discord.Embed(
+                title=day_header(day),
+                description="\n".join(working + free),
+                color=rainbow_colors[idx % len(rainbow_colors)]
+            )
+            embeds.append(embed)
+
+        if not results:
+            if day_list and staff_list:
+                await interaction.response.send_message(
+                    f"{', '.join(staff_list)} are working on {', '.join(day_list)}.", ephemeral=False)
+            else:
+                await interaction.response.send_message("No free days found for the given criteria.", ephemeral=False)
+        if not embeds:
+            await interaction.response.send_message("No data matched the query.", ephemeral=True)
+else:
+            msg = "\n".join(results[:20])
+            if len(msg) > 2000:
+                msg = msg[:1900] + "\n... (truncated)"
+            await interaction.response.send_message(msg, ephemeral=False)
+            for e in embeds:
+                await interaction.followup.send(embed=e, ephemeral=False)
