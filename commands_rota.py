@@ -2,13 +2,12 @@ from discord import app_commands
 import discord
 from utils import load_cache, parse_date, date_to_pretty, split_multi_field, day_autocomplete, name_autocomplete, role_autocomplete
 from datetime import datetime, timedelta
+from collections import defaultdict
+import io
 
 def register_rota_commands(bot):
     tree = bot.tree
 
-    # (Paste your rota_cmd implementation here, using helpers from utils.py)
-    # Include autocomplete and all logic from your main bot previously
-    # Example (trimmed):
     @tree.command(name="rota", description="Cinema rota: filter by name, day, role (multi-role allowed).")
     @app_commands.describe(
         name="Staff full name (optional)",
@@ -48,7 +47,7 @@ def register_rota_commands(bot):
                 if day.lower() == "today":
                     day_obj = now
                 elif day.lower() == "tomorrow":
-                    day_obj = now.replace(day=now.day + 1)
+                    day_obj = now + timedelta(days=1)
                 else:
                     try:
                         date_parts = day.split()
@@ -71,67 +70,52 @@ def register_rota_commands(bot):
                     results = [s for s in results if day.lower() in (s.get("date") or "").lower()]
             if role:
                 roles = split_multi_field(role)
-                results = [s for s in results if any(r.lower() in (s.get("role") or "").lower() for r in roles)
-                ]
+                results = [s for s in results if any(r.lower() in (s.get("role") or "").lower() for r in roles)]
 
-
-        from collections import defaultdict
         type_colors = {
             "Managers": discord.Color.dark_blue(),
             "Floor": discord.Color.gold(),
             "FAB": discord.Color.red(),
+            "Costa": discord.Color.green(),
             "Other": discord.Color.light_grey(),
         }
 
-        grouped_by_day = defaultdict(lambda: defaultdict(list))
+        # Group by date -> type -> person -> list of shifts
+        grouped = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
 
         for s in results:
             d, _ = parse_date(s.get("date") or "")
             if not d:
                 continue
-            date_key = d.strftime("%A %d %b")
-            shift_line = f"**{s['name']}**: {s['start']}–{s['end']} ({s['role']})"
-
-            role = (s.get("role") or "").lower()
-            if "manager" in role or "cem" in role:
-                grouped_by_day[date_key]["Managers"].append(shift_line)
-            elif "ushering" in role:
-                grouped_by_day[date_key]["Floor"].append(shift_line)
-            elif "fab" in role:
-                grouped_by_day[date_key]["FAB"].append(shift_line)
+            date_key = d.strftime("%A %d %b %Y")
+            shift_str = f"{s['start']}–{s['end']} ({s['role']})"
+            name_key = s["name"]
+            role_str = (s.get("role") or "").lower()
+            # Categorization logic
+            if "manager" in role_str or "cem" in role_str:
+                cat = "Managers"
+            elif "ushering" in role_str:
+                cat = "Floor"
+            elif "barista" in role_str:
+                cat = "Costa"
+            elif "fab" in role_str or "kitchen" in role_str or "kiosk" in role_str:
+                cat = "FAB"
             else:
-                grouped_by_day[date_key]["Other"].append(shift_line)
+                cat = "Other"
+            grouped[date_key][cat][name_key].append(shift_str)
 
-        embeds = []
-        for date, sections in grouped_by_day.items():
-            color = (
-                type_colors["Managers"]
-                if "Managers" in sections else
-                type_colors["Floor"]
-                if "Floor" in sections else
-                type_colors["FAB"]
-                if "FAB" in sections else
-                type_colors["Other"]
-            )
-            embed = discord.Embed(title=date, color=color)
-            for section, lines in sections.items():
-                embed.add_field(name=section, value="\n".join(lines), inline=False)
-            embeds.append(embed)
-
-        if not embeds:
-            await interaction.response.send_message("No shifts found for your query.", ephemeral=True)
-        else:
-            await interaction.response.send_message(embeds=embeds, ephemeral=False)
-        if len(embeds) > 10:
-            txt = ""
-            for d, items in fields.items():
-                txt += f"\n{d}\n" + "\n".join(items) + "\n"
-            await interaction.response.send_message(
-                "Too many results, sent as file instead.",
-                file=discord.File(fp=io.StringIO(txt), filename="shifts.txt"),
-                ephemeral=True
-            )
-        elif not fields:
-            await interaction.response.send_message("No shifts found for your query.", ephemeral=True)
-        else:
-            await interaction.response.send_message(embeds=embeds, ephemeral=False)
+        # Sort by date
+        for date_key in sorted(grouped.keys()):
+            await interaction.response.send_message(f"**Rota for {date_key}:**", ephemeral=False)
+            # For each category, build an embed
+            for cat in ["Managers", "Floor", "FAB", "Costa", "Other"]:
+                if cat not in grouped[date_key]:
+                    continue
+                embed = discord.Embed(title=cat, color=type_colors[cat])
+                for name_key, shifts_list in grouped[date_key][cat].items():
+                    embed.add_field(
+                        name=name_key,
+                        value="\n".join(shifts_list),
+                        inline=False
+                    )
+                await interaction.followup.send(embed=embed, ephemeral=False)
