@@ -73,12 +73,23 @@ async def free_cmd(interaction: discord.Interaction, names: str = "", days: str 
         await interaction.response.send_message("No data matched the query.", ephemeral=True)
     else:
         for e in embeds:
+<<<<<<< Updated upstream
             await interaction.followup.send(embed=e, ephemeral=False)", description="Find when staff are free on specific days or overall.")
     @tree.command(name="free", description="Find when staff are free on specific days or overall.")
 @app_commands.describe(names="Comma-separated staff names (optional)", days="Comma-separated days (e.g. Monday, Tuesday)")
 @app_commands.autocomplete(names=name_autocomplete, days=day_autocomplete)
 async def free_cmd(interaction: discord.Interaction, names: str = "", days: str = ""):
 @@ -87,25 +18,26 @@ async def free_cmd(interaction: discord.Interaction, names: str = "", days: str
+=======
+            await interaction.followup.send(embed=e, ephemeral=False), description="Find when staff are free on specific days or overall.")
+    @app_commands.describe(names="Comma-separated staff names (optional)", days="Comma-separated days (e.g. Monday, Tuesday)")
+    @app_commands.autocomplete(names=name_autocomplete, days=day_autocomplete)
+    async def free_cmd(interaction: discord.Interaction, names: str = "", days: str = ""):
+        shifts = load_cache()
+        if not shifts:
+            await interaction.response.send_message("No cached data. Please run `/fetch` first.", ephemeral=True)
+            return
+>>>>>>> Stashed changes
 
 staff_list = [n.strip().title() for n in names.split(",") if n.strip()]
 day_list = [d.strip().capitalize() for d in days.split(",") if d.strip()]
