@@ -74,72 +74,54 @@ def register_rota_commands(bot):
                 results = [s for s in results if any(r.lower() in (s.get("role") or "").lower() for r in roles)
                 ]
 
-        # Sort by date (chronological), then start time
-        def sort_key(s):
-            d, _ = parse_date(s.get("date") or "")
-            d = d or datetime.max
-            st = s.get("start") or ""
-            try:
-                st_dt = datetime.strptime(st, "%H:%M")
-            except Exception:
-                st_dt = datetime.strptime("23:59", "%H:%M")
-            return (d, st_dt)
-        results.sort(key=sort_key)
 
-        # Group by date (prettified)
-        fields = {}
+        from collections import defaultdict
+        type_colors = {
+            "Managers": discord.Color.dark_blue(),
+            "Floor": discord.Color.gold(),
+            "FAB": discord.Color.red(),
+            "Other": discord.Color.light_grey(),
+        }
+
+        grouped_by_day = defaultdict(lambda: defaultdict(list))
+
         for s in results:
             d, _ = parse_date(s.get("date") or "")
-            date_str = date_to_pretty(d) if d else (s.get("date") or "Unknown")
-            if date_str not in fields:
-                fields[date_str] = []
-            fields[date_str].append(f"**{s['name']}**: {s['start']}–{s['end']} ({s['role']})")
+            if not d:
+                continue
+            date_key = d.strftime("%A %d %b")
+            shift_line = f"**{s['name']}**: {s['start']}–{s['end']} ({s['role']})"
 
-        import io
+            role = (s.get("role") or "").lower()
+            if "manager" in role or "cem" in role:
+                grouped_by_day[date_key]["Managers"].append(shift_line)
+            elif "ushering" in role:
+                grouped_by_day[date_key]["Floor"].append(shift_line)
+            elif "fab" in role:
+                grouped_by_day[date_key]["FAB"].append(shift_line)
+            else:
+                grouped_by_day[date_key]["Other"].append(shift_line)
+
         embeds = []
-        embed = discord.Embed(
-            title="Cinema Shifts",
-            description=f"Results for: " +
-                        (f"**{name}**" if name else "*All staff*") +
-                        (f", **{day}**" if day else "") +
-                        (f", **{role}**" if role else ""),
-            color=discord.Color.blue()
-        )
-        total_chars = len(embed.title) + len(embed.description)
-        max_embed_chars = 6000
-        max_fields = 25
-
-        for d, items in fields.items():
-            chunk = []
-            chunk_len = 0
-            chunk_index = 1
-            for line in items:
-                if chunk_len + len(line) + 1 > 1024:
-                    field_val = "\n".join(chunk)
-                    if (len(embed.fields) >= max_fields or total_chars + len(field_val) > max_embed_chars):
-                        embeds.append(embed)
-                        embed = discord.Embed(color=discord.Color.blue())
-                        total_chars = 0
-                    embed.add_field(name=f"{d} (cont'd {chunk_index})", value=field_val, inline=False)
-                    total_chars += len(f"{d} (cont'd {chunk_index})") + len(field_val)
-                    chunk = []
-                    chunk_len = 0
-                    chunk_index += 1
-                chunk.append(line)
-                chunk_len += len(line) + 1
-            if chunk:
-                field_name = f"{d}" if chunk_index == 1 else f"{d} (cont'd {chunk_index})"
-                field_val = "\n".join(chunk)
-                if (len(embed.fields) >= max_fields or total_chars + len(field_val) > max_embed_chars):
-                    embeds.append(embed)
-                    embed = discord.Embed(color=discord.Color.blue())
-                    total_chars = 0
-                embed.add_field(name=field_name, value=field_val, inline=False)
-                total_chars += len(field_name) + len(field_val)
-
-        if len(embed.fields) > 0 or len(embeds) == 0:
+        for date, sections in grouped_by_day.items():
+            color = (
+                type_colors["Managers"]
+                if "Managers" in sections else
+                type_colors["Floor"]
+                if "Floor" in sections else
+                type_colors["FAB"]
+                if "FAB" in sections else
+                type_colors["Other"]
+            )
+            embed = discord.Embed(title=date, color=color)
+            for section, lines in sections.items():
+                embed.add_field(name=section, value="\n".join(lines), inline=False)
             embeds.append(embed)
 
+        if not embeds:
+            await interaction.response.send_message("No shifts found for your query.", ephemeral=True)
+        else:
+            await interaction.response.send_message(embeds=embeds, ephemeral=False)
         if len(embeds) > 10:
             txt = ""
             for d, items in fields.items():
