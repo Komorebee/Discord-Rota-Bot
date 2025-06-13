@@ -12,7 +12,7 @@ PASSWORD = os.getenv("QUINYX_PASSWORD")
 async def fetch_user_shifts(target_name=None):
     print(f"Fetching shifts for: {target_name or 'ALL STAFF'}")
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+        browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
 
         # --- Login ---
