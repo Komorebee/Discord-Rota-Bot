@@ -32,6 +32,33 @@ async def on_ready():
 
     # Check if cache contains today and next Thursday
     cache_valid = False
+    if os.path.exists("shifts_cache.json"):
+        try:
+            with open("shifts_cache.json", 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            shift_dates = set()
+            for entry in data:
+                date_obj, _ = parse_date(entry.get("date", ""))
+                if date_obj:
+                    shift_dates.add(date_obj.date())
+            today = datetime.today().date()
+            next_thursday = today + timedelta(days=(3 - today.weekday() + 7) % 7 + 4 if today.weekday() > 3 else 3 - today.weekday())
+            if today in shift_dates and next_thursday in shift_dates:
+                cache_valid = True
+        except Exception as e:
+            print("Error reading cache:", e)
+
+    if not cache_valid:
+        print("Cache is outdated or incomplete. Fetching shifts now...")
+        from utils import fetch_and_cache
+        await fetch_and_cache()
+    else:
+        print("Cache is up to date. Scheduling auto-fetch in 4 hours...")
+        asyncio.create_task(scheduled_fetch(bot))
+
+
+    # Check if cache contains today and next Thursday
+    cache_valid = False
     if os.path.exists(SHIFTS_CACHE_FILE):
         try:
             with open(SHIFTS_CACHE_FILE, 'r', encoding='utf-8') as f:
