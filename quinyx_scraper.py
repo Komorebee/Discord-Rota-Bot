@@ -27,22 +27,48 @@ async def fetch_user_shifts(target_name=None):
         await page.wait_for_timeout(5000)
 
         # --- Go to custom schedule URL ---
+        #from datetime import datetime, timedelta
+
+        #today = datetime.now()
+        #from_date_obj = today - timedelta(days=1)
+        #from_date = from_date_obj.strftime('%Y-%m-%d')
+
+        #days_until_next_thursday = (3 - today.weekday() + 7) % 7
+        #if days_until_next_thursday == 0:
+        #    days_until_next_thursday = 7
+        #to_date_obj = today + timedelta(days=days_until_next_thursday)
+        #to_date = to_date_obj.strftime('%Y-%m-%d')
+
+        #url = f"https://web.quinyx.com/staffPortal/schedule?dateOption=week&fromDate={from_date}&toDate={to_date}"
+        #print(f"Navigating to {url}")
+        #await page.goto(url)
+        #await page.wait_for_timeout(3000)
+
+        # --- Revision 2 for Go To --- #
         from datetime import datetime, timedelta
 
         today = datetime.now()
         from_date_obj = today - timedelta(days=1)
         from_date = from_date_obj.strftime('%Y-%m-%d')
-
-        days_until_next_thursday = (3 - today.weekday() + 7) % 7
-        if days_until_next_thursday == 0:
-            days_until_next_thursday = 7
-        to_date_obj = today + timedelta(days=days_until_next_thursday)
+        
+        weekday = today.weekday()  # Monday=0, Tuesday=1, ..., Sunday=6
+        
+        if weekday == 0:  # Monday
+            # This week's Thursday
+            days_until_thursday = 3 - weekday  # 3 - 0 = 3
+            to_date_obj = today + timedelta(days=days_until_thursday)
+        else:
+            # Next week's Thursday
+            days_until_next_weeks_thursday = 10 - weekday  # 3 (Thursday) + 7 (next week) - weekday
+            to_date_obj = today + timedelta(days=days_until_next_weeks_thursday)
+        
         to_date = to_date_obj.strftime('%Y-%m-%d')
-
+        
         url = f"https://web.quinyx.com/staffPortal/schedule?dateOption=week&fromDate={from_date}&toDate={to_date}"
         print(f"Navigating to {url}")
         await page.goto(url)
         await page.wait_for_timeout(3000)
+
 
 
         # --- Filter: Colleague's shift ---
