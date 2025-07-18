@@ -18,6 +18,11 @@ def save_cache(shifts):
     with open(CACHE_FILE, "w") as f:
         json.dump(shifts, f, indent=2)
 
+def clear_cache():
+    """Remove the cached shifts file if it exists."""
+    if os.path.exists(CACHE_FILE):
+        os.remove(CACHE_FILE)
+
 async def fetch_and_cache():
     from quinyx_scraper import fetch_user_shifts
     shifts = await fetch_user_shifts()
