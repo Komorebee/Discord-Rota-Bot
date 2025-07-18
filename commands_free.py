@@ -14,7 +14,9 @@ def register_free_command(bot):
     async def free_cmd(interaction: discord.Interaction, names: str = "", days: str = ""):
         shifts = load_cache()
         if not shifts:
-            await interaction.response.send_message("No cached data. Please run `/fetch` first.", ephemeral=True)
+            await interaction.response.send_message(
+                "No cached data. Please run `/fetch` first.", ephemeral=True
+            )
             return
 
         staff_list = [n.strip().title() for n in names.split(",") if n.strip()]
@@ -22,8 +24,12 @@ def register_free_command(bot):
         all_names = sorted(set(s["name"] for s in shifts if s.get("name")))
 
         if not staff_list and not day_list:
-            await interaction.response.send_message("Please provide at least a name or a day.", ephemeral=True)
+            await interaction.response.send_message(
+                "Please provide at least a name or a day.", ephemeral=True
+            )
             return
+
+        await interaction.response.defer(ephemeral=False)
 
         from datetime import date as Date
         shifts_by_name = defaultdict(lambda: defaultdict(list))
@@ -77,10 +83,14 @@ def register_free_command(bot):
 
         if not embeds:
             if day_list and staff_list:
-                await interaction.response.send_message(
-                    f"{', '.join(staff_list)} are working on {', '.join(day_list)}.", ephemeral=False)
+                await interaction.followup.send(
+                    f"{', '.join(staff_list)} are working on {', '.join(day_list)}.",
+                    ephemeral=False,
+                )
             else:
-                await interaction.response.send_message("No free days found for the given criteria.", ephemeral=False)
+                await interaction.followup.send(
+                    "No free days found for the given criteria.", ephemeral=False
+                )
         else:
             for e in embeds:
                 await interaction.followup.send(embed=e, ephemeral=False)
