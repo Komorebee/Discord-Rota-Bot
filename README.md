@@ -128,17 +128,3 @@ This project is open-source under the MIT License.
 📌 Contact
 Created by Ashraf Jamel
 Feel free to reach out if you want help deploying this bot or extending it for workplace automation.
-
-yaml
-Copy code
-
----
-
-If you want, I can also generate:
-
-✅ A **badges section** (build status, code quality, downloads)  
-✅ A **demo GIF/video embed**  
-✅ A **project summary** for your CV or portfolio  
-✅ Diagrams showing how the bot interacts with Discord & Quinyx
-
-Just tell me what you want next.
